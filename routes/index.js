@@ -38,10 +38,22 @@ router.post("/", (req, res) => {
   res.json(newNote);
 });
 
-module.exports = router;
-
 //API DELETE Request
 router.delete("/:id", (req, res) => {
   let noteId = req.params.id;
-  console.log(id);
+  console.log("DELETE REQUEST FOR: ${noteId}");
+  fs.readFile("./db/db.json", "utf-8", (err, data) => {
+    if (err) {
+      console.log(err);
+      res.send("There was an error for the DELETE request");
+    } else {
+      let oldNotes = JSON.parse(data);
+      let newNotes = oldNotes.filter((note) => note.id !== noteId);
+      fs.writeFile("./db/db.json", JSON.stringify(newNotes));
+      console.log("Note was successfully deleted!");
+      res.json(newNotes);
+    }
+  });
 });
+
+module.exports = router;
