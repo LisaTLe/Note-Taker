@@ -1,16 +1,16 @@
-const express = require("express");
+const { Router } = require("express");
 const fs = require("fs");
 
-const app = express();
+const router = Router();
 
 const PORT = process.env.PORT || 3001;
 
 //Middleware
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use("/api", api);
+router.use(express.json());
+router.use(express.urlencoded({ extended: true }));
+router.use("/api", api);
 
 //Listen port
-app.listen(PORT, () =>
+router.listen(PORT, () =>
   console.log(`App listening at http://localhost:${PORT} 🚀`)
 );
