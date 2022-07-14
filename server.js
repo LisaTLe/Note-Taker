@@ -1,7 +1,8 @@
 const express = require("express");
 const fs = require("fs");
-const index = require("../Note-Taker/routes/index");
-const notes = require("../Note-Taker/routes/notes");
+const api = require("../Note-Taker/routes");
+// const index = require("../Note-Taker/routes/index");
+// const notes = require("../Note-Taker/routes/notes");
 
 const app = express();
 
@@ -12,8 +13,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-app.use("/api", notes);
-app.use("/", index);
+app.use("/api", api);
+// app.use("/", index);
 
 //Listen port
 app.listen(PORT, () =>
