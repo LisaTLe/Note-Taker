@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 3001;
 //Middleware
 app.use(express.static("public"));
 app.use(express.json());
-// app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }));
 
 app.use("/api", api);
 // app.use("/", index);
