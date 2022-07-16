@@ -24,9 +24,9 @@ router.get("/", (req, res) => {
 
 //API POST Requests
 router.post("/", (req, res) => {
-  let newNote = req.body;
+  let { title, body } = req.body;
 
-  console.log("New note created:", newNote);
+  console.log("New note created");
   fs.readFile(
     "./db/db.json",
     "utf-8",
@@ -36,7 +36,7 @@ router.post("/", (req, res) => {
         res.status(404).send("Error!");
       } else {
         const existData = JSON.parse(data);
-        existData.push({ newNote, id: uuidv4() });
+        existData.push({ title, body, id: uuidv4() });
         fs.writeFile(
           "./db/db.json",
           JSON.stringify(existData),
@@ -52,7 +52,7 @@ router.post("/", (req, res) => {
       }
     },
     //send response
-    res.json(newNote)
+    res.send("New note created")
   );
 });
 
