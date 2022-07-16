@@ -8,7 +8,7 @@ const { v4: uuidv4 } = require("uuid");
 const router = Router();
 
 //API GET Requests
-router.get("/", (req, res) => {
+router.get("/notes", (req, res) => {
   fs.readFile(db, "utf-8", (err, data) => {
     // res.json(JSON.parse(data))
     if (err) {
@@ -23,7 +23,7 @@ router.get("/", (req, res) => {
 });
 
 //API POST Requests
-router.post("/", (req, res) => {
+router.post("/notes", (req, res) => {
   let newNote = req.body;
 
   console.log("New note created:", newNote);
@@ -40,7 +40,7 @@ router.post("/", (req, res) => {
 });
 
 //API DELETE Request
-router.delete("/:id", (req, res) => {
+router.delete("/notes/:id", (req, res) => {
   let noteId = req.params.id;
   console.log("DELETE REQUEST FOR: ${noteId}");
   fs.readFile(db, "utf-8", (err, data) => {
