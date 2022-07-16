@@ -36,12 +36,14 @@ This application is for a user to take notes on the go. The user will be able to
 
 ## Demo Video
 
-![Test Video](https://drive.google.com/file/d/1kRbhxrdag5Aura-2iYkQJyLlFVYMrCHZ/view)
+![Test Video](https://drive.google.com/file/d/1r6-MDSn7HARn6ROhRAVjp1hSmGPLgdj6/view)
 
-![gif](./public/assets/images/gifs/Untitled_%20Jul%2016%2C%202022%202_30%20PM.gif)
+![gif](./public/assets/images/gifs/Untitled_%20Jul%2016%2C%202022%204_26%20PM.gif)
 
 ## Screenshots
 
 ![Screenshot](./public/assets/images/notes1.PNG)
 
 ![screenshot2](./public/assets/images/notes2.PNG)
+
+![screenshot3](./public/assets/images/notes3.PNG)
