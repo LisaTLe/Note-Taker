@@ -24,7 +24,7 @@ router.get("/", (req, res) => {
 
 //API POST Requests
 router.post("/", (req, res) => {
-  let { title, body } = req.body;
+  let { title, text } = req.body;
 
   console.log("New note created");
   fs.readFile(
@@ -36,7 +36,7 @@ router.post("/", (req, res) => {
         res.status(404).send("Error!");
       } else {
         const existData = JSON.parse(data);
-        existData.push({ title, body, id: uuidv4() });
+        existData.push({ title, text, id: uuidv4() });
         fs.writeFile(
           "./db/db.json",
           JSON.stringify(existData),
