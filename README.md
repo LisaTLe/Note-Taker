@@ -4,7 +4,7 @@ by Lisa Le
 
 ## Deployed to Heroku
 
-![Heroku](https://mysterious-badlands-73655.herokuapp.com/)
+[Heroku](https://mysterious-badlands-73655.herokuapp.com/)
 
 ## Description
 
