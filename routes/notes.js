@@ -58,19 +58,21 @@ router.post("/", (req, res) => {
 
 //API DELETE Request
 router.delete("/:id", (req, res) => {
-  let noteId = req.params.id;
-  console.log("DELETE REQUEST FOR: ${noteId}");
+  let { id } = req.params;
+  console.log(`Delete Requested for ${id}`);
   fs.readFile("./db/db.json", "utf-8", (err, data) => {
     if (err) {
       console.log(err);
       res.send("There was an error for the DELETE request");
     } else {
-      let oldNotes = JSON.parse(data);
-      let newNotes = oldNotes.filter((note) => note.id !== noteId);
-      fs.writeFile("./db/db.json", JSON.stringify(newNotes));
-      console.log("Note was successfully deleted!");
-      //send response
-      res.json(newNotes);
+      let existNotes = JSON.parse(data);
+      let newNotes = existNotes.filter((note) => note.id !== id);
+      fs.writeFile("./db/db.json", JSON.stringify(newNotes), "utf-8", (err) => {
+        if (err) {
+          console.log(err);
+        }
+        res.send("Note was successfully deleted!");
+      });
     }
   });
 });
